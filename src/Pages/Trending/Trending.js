@@ -24,13 +24,12 @@ const Trending = () => {
 
   useEffect(() => {
     fetchTrending();
-  
-   
+  // eslint-disable-next-line 
   }, [page])
   
   return (
     <div>
-      <span className='pageTitle'>Trending</span>
+      <span className='pageTitle'>Trending Today</span>
       <div className='trending'>
         {
           content && content.map((c) => (

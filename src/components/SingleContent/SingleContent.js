@@ -1,4 +1,3 @@
-import { BadgeUnstyled } from '@mui/base'
 import { Badge } from '@mui/material'
 import React from 'react'
 import { img_300, unavailable } from '../config'
@@ -13,7 +12,7 @@ function SingleContent(props) {
   return (
 
     <ContentModal media_type={media_type} id={id}>
-      <BadgeUnstyled badgeContent={vote_average} color={vote_average>6?'primary':'secondary'} />
+      <Badge badgeContent={vote_average} color={vote_average>6?'primary':'secondary'} />
       <img className='poster' src={poster ? `${img_300}/${poster}` : unavailable} alt={title} />
       <b className='title'>{title}</b>
       <span className='subTitle'>

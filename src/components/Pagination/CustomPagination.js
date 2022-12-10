@@ -4,7 +4,7 @@ import { createTheme, Pagination } from '@mui/material'
 import React from 'react'
 const darkTheme = createTheme({
     
-    palette: { type:"dark" },
+    palette: { type:'dark' },
 });
 function CustomPagination({setPage,numOfPages=10}) {
     const handlePageChange = (page) => {
@@ -21,11 +21,13 @@ function CustomPagination({setPage,numOfPages=10}) {
             
         }} >
             <ThemeProvider theme={darkTheme}>
-                <Pagination style={{ backgroundColor: 'white' }}
+                <Pagination 
+                    style={{ backgroundColor:'white', }}
                     count={numOfPages} onClick={(e) => handlePageChange(e.target.textContent)}
-                  
-                    color='primary'
                    
+                    color='primary'
+                    hidePrevButton
+                    hideNextButton
                 />
     </ThemeProvider> 
     

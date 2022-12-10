@@ -36,7 +36,7 @@ const Genre = (props) => {
       
 
   }
-  console.log("genres", genres);
+  // console.log("genres", genres);
 
 
 

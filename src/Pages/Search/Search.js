@@ -1,12 +1,10 @@
-import { Button, createTheme, Tabs,Tab, TextField, ThemeProvider } from '@mui/material';
+import { Button, createTheme, Tabs,Tab, TextField, ThemeProvider,} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 import React, { useEffect, useState } from 'react'
-import { Tune } from '@mui/icons-material';
 import axios from 'axios';
 import CustomPagination from '../../components/Pagination/CustomPagination';
 import SingleContent from '../../components/SingleContent/SingleContent';
-import Context from '@mui/base/TabsUnstyled/TabsContext';
 
 const Search = () => {
   
@@ -22,36 +20,53 @@ const Search = () => {
       type:'dark',
       primary: {
         main:"#fff"
-      } 
+      },
+  
     },
   });
 
   const fetchSearch = async () => {
-    const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`);
+    try {
+      
+    
+      const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`);
 
-    // console.log("movies data", data);
-    setContent(data.results);
-    setNumOfPages(data.total_pages);
+      // console.log("movies data", data);
+      setContent(data.results);
+      setNumOfPages(data.total_pages);
+    }
+    catch (error) {
+      console.log(error);
+    }
+
     
   }
   useEffect(() => {
     window.scroll(0, 0);
     fetchSearch();
-   
+     // eslint-disable-next-line
   }, [type, page]);
   
   return (
     <div>
       {/* <span className='pageTitle'>Search</span> */}
       <ThemeProvider theme={darkTheme}>
-        <div style={{display:"flex",margin:"15px 0"}}>
-          <TextField style={{ flex: 1 }}
-            className="searchBox"
-            id="filled-basic"
+        <div style={{ display: "flex", margin: "15px 0",background:'white'}}>
+          <TextField
+            sx={{
+              
+              flex: 1,
+              color: "white"
+            }}
+
+            // InputLabelProps={{
+            //   style: { color: '#fff', },
+            // }}
+            //          
             label="Search" variant="filled"
             onChange={(e) => setSearchText(e.target.value)} />
           
-            <Button variant="contained" style={{marginLeft:10}} onClick={fetchSearch}><SearchIcon/></Button>
+            <Button variant="contained" onClick={fetchSearch}><SearchIcon fontSize='large'/></Button>
           
         </div>
         <Tabs value={type} indicatorColor='primary' textColor='primary'
@@ -59,11 +74,11 @@ const Search = () => {
             setType(newValue);
             setPage(1);
           }}
-          style={{paddingBottom:5}}
+          style={{ paddingBottom: 5}}
         >
 
-          <Tab style={{width:"50%"}} label="Search Movies"/>
-          <Tab style={{ width:"50%" }} label="Search Tv Series" />
+          <Tab style={{ width: "50%", color: '#fff' }} label="Search Movies"/>
+          <Tab style={{ width: "50%", color: '#fff' }} label="Search Tv Series" />
         </Tabs>
        
       </ThemeProvider>
