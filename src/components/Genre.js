@@ -1,3 +1,6 @@
+//chip component of material ui is used here to display the genres
+
+
 import { Chip } from '@mui/material';
 import axios from 'axios';
 import React from 'react'
@@ -41,7 +44,8 @@ const Genre = (props) => {
 
 
     useEffect(() => {
-        fetchGenres();
+      fetchGenres();
+      
       return () => {
           //unmounting
          setGenres([]);
@@ -70,7 +74,8 @@ const Genre = (props) => {
 
       {genres&&(genres.map((genre) => (
       
-        <Chip label={genre.name} style={{ margin: 2, background: 'white' }}
+        <Chip label={genre.name}
+          style={{ margin: 2, background: 'white' }}
           size="small"
           key={genre.id}
           clickable

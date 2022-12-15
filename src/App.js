@@ -3,7 +3,7 @@ import { Container } from '@mui/system';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
-import SimpleBottomNavigation from './components/MainNav';
+import SimpleBottomNavigation from './components/Footer/MainNav';
 import Trending from './Pages/Trending/Trending';
 import Series from './Pages/Series/Series';
 import Movies from './Pages/Movies/Movies';
@@ -17,6 +17,7 @@ function App() {
 
       <div className="app">
         <Container>
+          
           <Routes>
             <Route path="/" element={<Trending/>} exact/>
             <Route path="/movies" element={<Movies/>} />

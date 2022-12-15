@@ -10,11 +10,16 @@ const Movies = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
- 
+
+  
+ //it is for genres which we see at the top of movies
+  
   const [selectedGenres, setSelectedGenres] = useState([]);
 
   const [genres, setGenres] = useState([]);
+  
 
+  //converting the selected genres into string 
   const genreforURL = useGenre(selectedGenres);
 
   const fetchMovies = async () => {
@@ -25,6 +30,8 @@ const Movies = () => {
     setNumOfPages(data.total_pages);
   }
 
+  //here we have passes page and genreforURL as dependencies ,because if either of them will change useEffect will call again , genreforURL refers here selected genres
+  
   useEffect(() => {
     fetchMovies();
     // eslint-disable-next-line
@@ -34,10 +41,11 @@ const Movies = () => {
   return (
 
     <div>
-      <span className='pageTitle'> Movies For You</span>
+      <span className='pageTitle'> Movies For You </span>
       <Genre
         type="movie"
-        selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} genres ={genres}
+        selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres}
+        genres={genres}
         setGenres={setGenres}
         setPage={setPage}
       />
@@ -45,7 +53,12 @@ const Movies = () => {
       <div className='trending'>
         {
           content && content.map((c) => (
-            <SingleContent key={c.id} id={c.id} poster={c.poster_path} title={c.title || c.name} media_type='movie' date={c.first_air_date || c.release_data}
+            <SingleContent key={c.id}
+              id={c.id}
+              poster={c.poster_path}
+              title={c.title || c.name}
+              media_type='movie'
+              date={c.first_air_date || c.release_date}
               vote_average={c.vote_average} />
 
           ))

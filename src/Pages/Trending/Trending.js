@@ -17,15 +17,15 @@ const Trending = () => {
 
     const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);
 
-    // console.log("console.data",data.results);
+    // console.log("console.data",data);
     
     setContent(data.results);
   }
 
   useEffect(() => {
     fetchTrending();
-  // eslint-disable-next-line 
-  }, [page])
+    // eslint-disable-next-line 
+  }, [page]);
   
   return (
     <div>
@@ -33,7 +33,7 @@ const Trending = () => {
       <div className='trending'>
         {
           content && content.map((c) => (
-            <SingleContent key={c.id} id={c.id} poster={c.poster_path} title={c.title || c.name} media_type={c.media_type} date={c.first_air_date||c.release_data}
+            <SingleContent key={c.id} id={c.id} poster={c.poster_path} title={c.title || c.name} media_type={c.media_type} date={c.first_air_date||c.release_date}
               vote_average={c.vote_average} />
             
           ))

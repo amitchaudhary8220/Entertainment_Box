@@ -14,6 +14,9 @@ const Series = () => {
 
   const [genres, setGenres] = useState([]);
 
+
+  //use to convert the selected genres into string 
+  
   const genreforURL = useGenre(selectedGenres);
 
   const fetchMovies = async () => {
@@ -24,6 +27,7 @@ const Series = () => {
     setNumOfPages(data.total_pages);
   }
 
+  //here we have passes page and genreforURL as dependencies ,because if either of them will change useEffect will call again , genreforURL refers here selected genres
   useEffect(() => {
     fetchMovies();
     // eslint-disable-next-line
@@ -35,20 +39,29 @@ const Series = () => {
 
       <Genre
         type="tv"
-        selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} genres={genres}
+        selectedGenres={selectedGenres}
+        setSelectedGenres={setSelectedGenres}
+        genres={genres}
         setGenres={setGenres}
         setPage={setPage}
       />
+
       <div className='trending'>
         {
           content && content.map((c) => (
-            <SingleContent key={c.id} id={c.id} poster={c.poster_path} title={c.title || c.name} media_type='tv' date={c.first_air_date || c.release_data}
+            <SingleContent key={c.id}
+              id={c.id}
+              poster={c.poster_path}
+              title={c.title || c.name}
+              media_type='tv'
+              date={c.first_air_date || c.release_data}
               vote_average={c.vote_average} />
 
           ))
         }
 
       </div>
+      
       {numOfPages > 1 &&
         (<CustomPagination setPage={setPage} numOfPages={numOfPages} />)
       }

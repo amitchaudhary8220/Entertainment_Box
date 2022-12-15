@@ -15,9 +15,12 @@ export default function SimpleBottomNavigation() {
 
 
     const [value, setValue] = React.useState(0);
+
+
     const navigate = useNavigate();
+
     useEffect(() => {
-        //in footer navbar of materail ui 1st gives valueas 0 second as 1 as so on , on the basis of that values we are chaning the routes
+        //in footer navbar of materail ui 1st gives valueas 0 second as 1 and so on , on the basis of that values we are chaning the routes
         
         // console.log(value);
        if (value === 0) navigate('/');
@@ -34,7 +37,7 @@ export default function SimpleBottomNavigation() {
       
 
 
-
+    // it is material ui bottom navigation
 
             <BottomNavigation
                 sx={{

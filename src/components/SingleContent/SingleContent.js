@@ -21,6 +21,7 @@ function SingleContent(props) {
       </span>
     </ContentModal>
   )
+  
 }
 
 export default SingleContent
