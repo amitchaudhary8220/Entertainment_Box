@@ -1,5 +1,4 @@
 {
-  "homepage": "https://amitchaudhary8220.github.io/Entertainment_Box",
   "name": "entertainment-box",
   "version": "0.1.0",
   "private": true,
@@ -10,7 +9,6 @@
     "@mui/material": "^5.10.16",
     "axios": "^1.2.0",
     "cra-template": "1.2.0",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-alice-carousel": "^2.7.0",
     "react-dom": "^18.2.0",
@@ -19,7 +17,6 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
