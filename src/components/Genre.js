@@ -61,7 +61,7 @@ const Genre = (props) => {
 
         <Chip
           label={genre.name}
-          style={{ margin: 2, }}
+          style={{ margin: 2,}}
           size="small"
           key={genre.id}
 

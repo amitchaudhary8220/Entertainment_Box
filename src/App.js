@@ -9,7 +9,9 @@ import Series from './Pages/Series/Series';
 import Movies from './Pages/Movies/Movies';
 import Search from './Pages/Search/Search';
 
+
 function App() {
+  
   return (
     <BrowserRouter>
       
@@ -29,7 +31,7 @@ function App() {
         </Container>
        
       </div>
-      <SimpleBottomNavigation />
+      <SimpleBottomNavigation/>
 
     </BrowserRouter>
     

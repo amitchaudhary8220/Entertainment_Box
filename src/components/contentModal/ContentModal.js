@@ -39,7 +39,8 @@ const style = {
 //to receive the everything from child component we have to provide here child ,now whole content of singleContent is imported here and the syle which we provided there ,must be provide here in the div that is showing all that content and it the div above Modal 
 
 
-export default function ContentModal({children,media_type,id}) {
+export default function ContentModal({ children, media_type, id }) {
+    
     const [open, setOpen] = React.useState(false);
     const [content, setContent] = useState();
     const [video, setVideo] = useState();
@@ -76,7 +77,7 @@ export default function ContentModal({children,media_type,id}) {
 
     return (
         <>  
-            {/* now to content of singleContent is here  */}
+            {/* now  content of singleContent is here  */}
             <div onClick={handleOpen} className='media'>{children}</div>
             <Modal
                 aria-labelledby="transition-modal-title"
@@ -91,7 +92,8 @@ export default function ContentModal({children,media_type,id}) {
             >
                 <Fade in={open}>
                     <Box sx={style}>
-                          {/* things we want to provide inside the box that will be open after clicking is here */}
+                          {/* things we want to provide inside the box that will be open after clicking is here
+                           */}
                             {content && (<div className='ContentModal'>
 
                                 <img alt={content.name || content.title} className='ContentModal__portrait' src={content.poster_path ? `${img_500}/${content.poster_path}` : unavailable}

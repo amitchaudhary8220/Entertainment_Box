@@ -10,7 +10,7 @@ const Search = () => {
   
   //if we provide here 0 bydefault movie will be selected and if provide 1 series will be selected
 
-  //if don't provide anything nothing will be selected but if will give result as movie because ${type ? "tv" : "movie"} here if type doesn't have anything it will return movie
+  //if don't provide anything nothing will be selected but it will give result as movie because ${type ? "tv" : "movie"} here if type doesn't have anything it will return movie
 
   const [type, setType] = useState(0);
   const [page, setPage] = useState();
@@ -21,7 +21,7 @@ const Search = () => {
 
   const darkTheme = createTheme({
     palette: {
-      type:'dark',
+      mode:'dark',
       primary: {
         main:"#fff"
       },
@@ -56,7 +56,7 @@ const Search = () => {
     <div>
       {/* <span className='pageTitle'>Search</span> */}
       <ThemeProvider theme={darkTheme}>
-        <div style={{ display: "flex", margin: "15px 0",background:'white'}}>
+        <div style={{ display: "flex", margin: "15px 0"}}>
           <TextField
             sx={{
               

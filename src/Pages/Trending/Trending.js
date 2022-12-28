@@ -33,8 +33,16 @@ const Trending = () => {
       <div className='trending'>
         {
           content && content.map((c) => (
-            <SingleContent key={c.id} id={c.id} poster={c.poster_path} title={c.title || c.name} media_type={c.media_type} date={c.first_air_date||c.release_date}
-              vote_average={c.vote_average} />
+            <SingleContent
+              key={c.id}
+              id={c.id}
+              poster={c.poster_path}
+              title={c.title || c.name}
+              media_type={c.media_type}
+              date={c.first_air_date || c.release_date}
+              vote_average={c.vote_average} 
+              
+              />
             
           ))
         }

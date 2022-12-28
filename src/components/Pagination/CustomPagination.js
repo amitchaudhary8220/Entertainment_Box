@@ -8,11 +8,12 @@ import React from 'react'
 
 const darkTheme = createTheme({
     
-    palette: { type: 'dark' },
+    palette: { mode: 'dark' },
    
     
     
 });
+
 function CustomPagination({ setPage, numOfPages = 10 }) {
     
     const handlePageChange = (page) => {
@@ -30,9 +31,7 @@ function CustomPagination({ setPage, numOfPages = 10 }) {
         }} >
             <ThemeProvider theme={darkTheme}>
                 <Pagination 
-                    style={{
-                        background:'white',
-                    }}
+                   
                     count={numOfPages}
 
                     // here e.target.textContent is coming from pagination and it is giving the value of current clicked button
@@ -40,8 +39,7 @@ function CustomPagination({ setPage, numOfPages = 10 }) {
                     onClick={(e) => handlePageChange(e.target.textContent) }
                    
                     color='primary'
-                    hidePrevButton
-                    hideNextButton
+                    
                 />
     </ThemeProvider> 
     
